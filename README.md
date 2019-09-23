@@ -4,6 +4,7 @@
 2. installieren
 3. Matlab installieren
 4. dieses Verzeichnis öffnen (alle dlls die man braucht sind hier dabei... sonst aus dem runtergeladenen vrep ordner die richtige raussuchen unter vrep/programming/remoteApiBindings/lib/Windows/$richtige version wählen$, in das Arbeitsverzeichnis kopieren)
+5. vrep ausführen -> szene laden (Szene_Assignement_01.ttt), starten
 5. main laufen lassen
 
 # useful links
