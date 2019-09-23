@@ -3,7 +3,7 @@ function VREPconnect(portNumber, jointName, oneRobot)
 global vrep;
 global vrepDATA;
 global numberOfJoints;
-addpath('../API');
+%addpath('API');
 vrep=remApi('remoteApi');
 if oneRobot
     vrep.simxFinish(-1);
@@ -17,4 +17,5 @@ if (vrepDATA.clientID>-1)
         [vrepDATA.returnCode,vrepDATA.jointHandles(i)] = vrep.simxGetObjectHandle(vrepDATA.clientID,vrepDATA.stringJoint,vrep.simx_opmode_blocking);
     end
 end
+vrep.simxAddStatusbarMessage(vrepDATA.clientID,'Hello V-REP!',vrep.simx_opmode_oneshot);
 end
