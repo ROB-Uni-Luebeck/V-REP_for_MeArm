@@ -1,23 +1,22 @@
+%% DONT TOUCH HERE
 % Clear everything and close everything
-clear all
-close all
-clc
+clear all; close all; clc;
 
-% Add path for the API scripts
-addpath('API')
-
-% verbindet mit dem roboterarm -> Simmulation muss laufen
-VREPconnect;
+global vrep; 
+global vrepDATA;
+global numberOfJoints; 
+portNumber = 19999; % FOR KUKA: 19999
+%% FEEL FREE TO TOUCH
+% parameter abhaengig vom Roboter
+numberOfJoints = 7;
+jointName = 'LBR_iiwa_7_R800_joint%i'; % FOR KUKA: 'LBR_iiwa_7_R800_joint%i'
+%verbindet zum ROboterarm
+VREPconnect(portNumber, jointName);
 
 % hier kann man die gelenkparameter einstellen
-q = ones(7,1)*20;
-    
-VREPtransfer;
-    
-    pause();
+q = ones(numberOfJoints,1)*20;
+%fahr Parameter an
+VREPtransfer(q);
         
-    %vrep.simxFinish(-1); 
-%end
- 
-%vrep.delete();            % Destructor
+% trennt die Verbindung
 VREPdisconnect;
