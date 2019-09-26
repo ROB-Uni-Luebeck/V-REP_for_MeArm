@@ -12,7 +12,7 @@
 api funktionen für matlab: http://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsMatlab.htm  <br>
 tutorial fürs setup: https://www.youtube.com/watch?v=piI5wYEXUms
 
-# fehler bei mac
+# für mac OS
 bei mac hatte ich den fehler das models nicht geladen wurde -> in den ordner gehen und im terminal ausführen:
 sudo xattr -r -d com.apple.quarantine *
 
