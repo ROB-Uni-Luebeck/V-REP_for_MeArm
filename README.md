@@ -9,7 +9,7 @@
 7. main.m laufen lassen
 
 # useful links
-api funktionen für matlab: http://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsMatlab.htm 
+api funktionen für matlab: http://www.coppeliarobotics.com/helpFiles/en/remoteApiFunctionsMatlab.htm  <br>
 tutorial fürs setup: https://www.youtube.com/watch?v=piI5wYEXUms
 
 # fehler bei mac
