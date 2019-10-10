@@ -10,5 +10,6 @@ if (vrepDATA.clientID>-1)
         vrep.simxSetJointTargetPosition(vrepDATA.clientID,vrepDATA.jointHandles(i),q(i),vrep.simx_opmode_blocking);
         vrep.simxAddStatusbarMessage(vrepDATA.clientID,['joint' num2str(i) ' set to ' num2str(q(i))],vrep.simx_opmode_oneshot);
     end
+    vrep.simxAddStatusbarMessage(vrepDATA.clientID,'------------------------------',vrep.simx_opmode_oneshot);
 end
 end
