@@ -1,6 +1,6 @@
 %% dieses skript gibt eine einfuehrung in alle Befehle die benutzt werden koennen
 % Anleitung:    - installiere und oeffne vrep und Matlab
-%               - lade diesen Ordner runter: oeffne dieses skript + und die
+%               - lade diesen Ordner runter: oeffne dieses skript in matlab und die
 %               szene in vrep (achte darauf, dass alles im gleichen ordner ist)
 %               - starte die Simmulation in vrep, dann fuehre das skript
 %               aus
@@ -26,11 +26,11 @@ VREPtransfer;
 
 pause();
 % close gripper command
-closeGripper;
+VREPcloseGripper;
     
 pause();
 % open gripper
-openGripper;
+VREPopenGripper;
     
 pause();
 % move joints in rad

@@ -1,7 +1,3 @@
-function VREPtransfer (q)
-global vrep;
-global vrepDATA;
-global numberOfJoints;
 % transfer angleparameter to V-REP
 % q: Gelenkparameter
 if (vrepDATA.clientID>-1)
@@ -11,5 +7,4 @@ if (vrepDATA.clientID>-1)
         vrep.simxAddStatusbarMessage(vrepDATA.clientID,['joint' num2str(i) ' set to ' num2str(q(i))],vrep.simx_opmode_oneshot);
     end
     vrep.simxAddStatusbarMessage(vrepDATA.clientID,'------------------------------',vrep.simx_opmode_oneshot);
-end
 end
