@@ -1,3 +1,4 @@
+%%%%%%%%% works!
 function endEffectorPos = fwKinHRM(q,iiwaDATA)
 % fwKinHRM calculates the forward kinematics of the
 % KUKA LBR_iiwa_7_R800

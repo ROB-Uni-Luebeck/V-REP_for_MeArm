@@ -1,14 +1,17 @@
 function [J] = LBRinvKin(M,args,robot)
 
 %% Setting up DH-Parameter: Which robot?
-a = [0,0,0,0,0,0,0];
-alp = [-90,90,-90,90,-90,90,0].*(pi/180);
-
+a = [0,0,0,0,0.0,0.0,0];
+alp = [90,90,90,90,-90,-90,90].*(pi/180);
+theta = [-180, 180, 0, -180, -90, -180, 0].*(pi/180);
 if strcmp(robot,'LBR4+') % LBR 4+ 
     d = [310.4,0,400.1,0,390,0,78]; 
-end
-if strcmp(robot,'LBR5') % LBR 5 iiwa
+elseif strcmp(robot,'LBR5') % LBR 5 iiwa
     d = [340,0,400,0,400,0,111];
+elseif strcmp(robot, 'LBR7')    
+    d = [0.1875+0.1525, 0, 0.4, 0, 0.4 0, 0.214];
+else
+    disp('wrong robot type')
 end
 
 %Parameter

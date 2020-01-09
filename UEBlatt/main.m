@@ -23,18 +23,12 @@ eta = 1e-1;
 deltaStep = 1e-3;
 % starting at:
 q = zeros(7,1); % current joint values
-
+q = ones(7,1) * rand
 %% FEEL FREE TO TOUCH
 VREPtransfer;
 fwKinHRM(q,iiwaDATA)
 
-[q,currentPos,e,error] = newtonInKin(epsilon,eta,deltaStep,q,posA,iiwaDATA);
-
-disp('result')
-q
-currentPos
-% e
-error
+%[q,currentPos,e,error] = newtonInKin(epsilon,eta,deltaStep,q,posA,iiwaDATA);
 
 VREPtransfer;
 

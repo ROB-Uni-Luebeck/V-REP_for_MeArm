@@ -1,0 +1,28 @@
+%% DONT TOUCH HERE
+clear all; close all; clc;
+
+VREPconnect;
+posA = [0.425; 0; 0.05]; % start pos of element
+rotation = rotz(90)*rotx(180);
+M_1 = [rotation];
+posB = [ -0.425; 0; 0.05]; % todo: choose position
+
+
+% starting at:
+q = zeros(7,1); % current joint values
+
+%% FEEL FREE TO TOUCH
+VREPtransfer;
+fwKinHRM(q,iiwaDATA)
+
+[q,currentPos,e,error] = newtonInKin(epsilon,eta,deltaStep,q,posA,iiwaDATA);
+
+disp('result')
+q
+currentPos
+% e
+error
+
+VREPtransfer;
+
+VREPdisconnect; % trennt die Verbindung -> nur einmal am Ende aufrufen
