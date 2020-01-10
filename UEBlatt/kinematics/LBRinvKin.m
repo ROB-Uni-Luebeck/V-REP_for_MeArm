@@ -1,15 +1,18 @@
 function [J] = LBRinvKin(M,args,robot)
 
 %% Setting up DH-Parameter: Which robot?
-a = [0,0,0,0,0.0,0.0,0];
+a = [0,0,0,0,0.4350,0.435,0];
 alp = [90,90,90,90,-90,-90,90].*(pi/180);
-theta = [-180, 180, 0, -180, -90, -180, 0].*(pi/180);
-if strcmp(robot,'LBR4+') % LBR 4+ 
-    d = [310.4,0,400.1,0,390,0,78]; 
+theta = zeros(7,1);
+if strcmp(robot,'LBR4+') % LBR 4+
+    d = [310.4,0,400.1,0,390,0,78];
 elseif strcmp(robot,'LBR5') % LBR 5 iiwa
     d = [340,0,400,0,400,0,111];
-elseif strcmp(robot, 'LBR7')    
-    d = [0.1875+0.1525, 0, 0.4, 0, 0.4 0, 0.214];
+elseif strcmp(robot, 'LBR7_med') % das sind die parameter für den Arm -> für die übung
+    a = zeros(7,1);
+    alp = [-90, 90, 90, -90, -90, 90, 0].*(pi/180);
+    theta = zeros(7,1);
+    d = [0.340, 0, 0.400, 0, 0.400, 0, 0.126];
 else
     disp('wrong robot type')
 end
@@ -25,7 +28,7 @@ else
 end
 
 %Erstellen von M06
-R67 = DHjT(0,a(7),alp(7),d(7));
+R67 = DHjT(theta(7),a(7),alp(7),d(7));
 M06 = M*pinv(R67);
 
 %Verdrehung der Ellipse um die z-Achse des BKS

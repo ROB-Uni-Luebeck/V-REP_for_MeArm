@@ -102,4 +102,5 @@ elseif length(ind)==1 %% falls nur ein wert > 0  spezialfälle
     end
 else
     % Fuck off state
+    disp('fuck of state')
 end

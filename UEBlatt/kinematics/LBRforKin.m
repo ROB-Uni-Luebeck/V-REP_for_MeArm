@@ -3,19 +3,16 @@ function [M] = LBRforKin(J,robot)
 %% Setting up DH-Parameter: Which robot?
 a = [0,0,0,0,0.4350,0.435,0];
 alp = [90,90,90,90,-90,-90,90].*(pi/180);
-%theta = [-180, 180, 0, -180, -90, -180, 0].*(pi/180);
 theta = zeros(7,1);
 if strcmp(robot,'LBR4+') % LBR 4+
     d = [310.4,0,400.1,0,390,0,78];
 elseif strcmp(robot,'LBR5') % LBR 5 iiwa
     d = [340,0,400,0,400,0,111];
-elseif strcmp(robot, 'LBR7')
-    %a = [0,0,0,0,0.4350,0.435,0];
+elseif strcmp(robot, 'LBR7_med') % das sind die parameter für den Arm -> für die übung
     a = zeros(7,1);
-    alp = [-90,90,90,-90,-90,90,0].*(pi/180);
-    %theta = [-180, 180, 0, -180, -90, -180, 0].*(pi/180);    
+    alp = [-90, 90, 90, -90, -90, 90, 0].*(pi/180);
     theta = zeros(7,1);
-    d = [340, 0, 400, 0, 400, 0, 0]; % +0.1525
+    d = [0.340, 0, 0.400, 0, 0.400, 0, 0.126];
 else
     disp('wrong robot type')
 end
