@@ -8,7 +8,7 @@ if strcmp(robot,'LBR4+') % LBR 4+
     d = [310.4,0,400.1,0,390,0,78];
 elseif strcmp(robot,'LBR5') % LBR 5 iiwa
     d = [340,0,400,0,400,0,111];
-elseif strcmp(robot, 'LBR7_med') % das sind die parameter für den Arm -> für die übung
+elseif strcmp(robot, 'LBR7_vrep') % das sind die parameter für den Arm -> für die übung
     a = zeros(7,1);
     alp = [-90, 90, 90, -90, -90, 90, 0].*(pi/180);
     theta = zeros(7,1);
@@ -28,8 +28,8 @@ else
 end
 
 %Erstellen von M06
-R67 = DHjT(theta(7),a(7),alp(7),d(7));
-M06 = M*pinv(R67);
+M67 = DHjT(theta(7),a(7),alp(7),d(7));
+M06 = M*pinv(M67);
 
 %Verdrehung der Ellipse um die z-Achse des BKS
 phi = atan2(M06(2,4),M06(1,4));
