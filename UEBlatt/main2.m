@@ -20,33 +20,35 @@ M_1 = LBRforKin(q,'LBR7_vrep');
 VREPtransfer;
 pause(1);
 
-% go to certain pos
 M_pickUp = [[eye(3)*rotx(90)*roty(90)*roty(90); 0 0 0] [0.48; 0.2; 0.45; 1]]
-%q = [170 45 -35 -110 90 20 174].*pi/180;
-%M_pickUp = LBRforKin(q,'LBR7_vrep')
-%VREPtransfer;
 q = LBRinvKin(M_pickUp, [-1 -1 -1 90*pi/180], 'LBR7_vrep').*pi/180;
 VREPtransfer;
-pause(1)
+pause(0.5)
 VREPGetJoints;
 q*180/pi
-%LBRforKin(q,'LBR7_vrep')
-%pause()
 M_pickUp = [[eye(3)*rotx(90)*roty(90)*roty(90); 0 0 0] [0.48; 0.3; 0.45; 1]]
 q = LBRinvKin(M_pickUp, [-1 -1 -1 90*pi/180], 'LBR7_vrep').*pi/180;
+pause(5)
 VREPtransfer;
-%M = LBRforKin(q,'LBR7_med') 
-%M = LBRforKin(q,'LBR7_med') 
-%VREPtransfer;
 pause(1)
-% while true
-     closeGripper;
-     pause();
-     q = zeros(7,1);
-%     q = input('q= \n')
-    VREPtransfer;
-% end
+closeGripper;
+pause(10);
+q = zeros(7,1);
+VREPtransfer;
+pause(5)
+q = [0 0 0 90 0 0 0].*pi/180;
 
+VREPtransfer;
+
+pause(2)
+q = [0 0 0 90 0 0 90].*pi/180;
+
+VREPtransfer;
+pause(2)
+openGripper;
+pause(10);
+q = zeros(7,1);
+VREPtransfer;
 VREPdisconnect; % trennt die Verbindung -> nur einmal am Ende aufrufen
 %%  0.0000   48.3844    0.0000  113.2619 -180.0000  115.1225  -90.0000
 

@@ -9,4 +9,7 @@ if (vrepDATA.clientID>-1)
         vrepDATA.stringJoint = sprintf('LBR_iiwa_7_R800_joint%i',i);
         [vrepDATA.returnCode,vrepDATA.jointHandles(i)] = vrep.simxGetObjectHandle(vrepDATA.clientID,vrepDATA.stringJoint,vrep.simx_opmode_blocking);
     end
+    % add gripper + cuboid
+    [vrepDATA.returnCode,vrepDATA.gripper] = vrep.simxGetObjectHandle(vrepDATA.clientID,'BaxterGripper',vrep.simx_opmode_blocking);
+    [vrepDATA.returnCode,vrepDATA.cuboid] = vrep.simxGetObjectHandle(vrepDATA.clientID,'Cuboid',vrep.simx_opmode_blocking);
 end
