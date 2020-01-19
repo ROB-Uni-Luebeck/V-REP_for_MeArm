@@ -1,4 +1,5 @@
 function [M] = LBRforKin(J,robot)
+% J in rad pls
 
 %% Setting up DH-Parameter: Which robot?
 a = [0,0,0,0,0.4350,0.435,0];
@@ -14,6 +15,15 @@ elseif strcmp(robot, 'LBR7_vrep') % das sind die parameter für den Arm -> für di
     theta = zeros(7,1);
     d = [0.340, 0, 0.400, 0, 0.400, 0, 0.126];
     %% checking wether parameters are in range!
+    %%
+    % maximale Auslenkungen
+    % [-170, 170]
+    % [-120, 120]
+    % [-170, 170]
+    % [-120, 120]
+    % [-170, 170]
+    % [-120, 120]
+    % [-175, 175]
     J = J.*180/pi;
     if abs(J(1)) <= 170 && abs(J(2)) <= 120 && abs(J(3)) <= 170 && abs(J(4)) <= 120 && abs(J(5)) <= 170 && abs(J(6)) <= 120 && abs(J(7)) <= 175 
         % all parameters are fine
