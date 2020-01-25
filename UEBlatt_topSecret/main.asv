@@ -12,13 +12,20 @@ q = zeros(7,1); % current joint values
 M_1 = LBRforKin(q,robot);
 VREPtransfer;
 pause(2);
+M_tmp = waypoints(M_1, 0.5, 0.3, 0.6, 0, 180, 0, 10);
 
 %% working code
-%pick up pose
-M_pickUp = [[eye(3)*roty(180); 0 0 0] [0.50; 0.30; 0.6; 1]];
-q = LBRnuminvKin(M_pickUp, q, robot);
-VREPtransfer;
-pause(5)
+% pick up pose
+%M_pickUp = [[eye(3)*roty(180); 0 0 0] [0.50; 0.30; 0.6; 1]];
+%q = LBRnuminvKin(M_pickUp, q, robot);
+%VREPtransfer;
+%pause(5)
+%% new code
+for i = 1:10
+    
+end
+
+%%
 
 for i = 1:6
     M_pickUp = [[eye(3)*roty(180); 0 0 0] [0.50; 0.30; 0.6-0.01*i; 1]];

@@ -36,12 +36,25 @@ elseif strcmp(robot, 'LBR7_vrep') % das sind die parameter für den Arm -> für di
 else
     disp('wrong robot type')
 end
+
+%% LSG
+% M01 = DHjT(J(1)+theta(1),a(1),alp(1),d(1));
+% M12 = DHjT(J(2)+theta(2),a(2),alp(2),d(2));
+% M23 = DHjT(J(3)+theta(3),a(3),alp(3),d(3));
+% M34 = DHjT(J(4)+theta(4),a(4),alp(4),d(4));
+% M45 = DHjT(J(5)+theta(5),a(5),alp(5),d(5));
+% M56 = DHjT(J(6)+theta(6),a(6),alp(6),d(6));
+% M67 = DHjT(J(7)+theta(7),a(7),alp(7),d(7));
+% M07 = M01*M12*M23*M34*M45*M56*M67;
+% M = M07;
+
+%% CODESNIPPET
+% TODO: Berechnen sie die einzelnen Homogenen Transformationsmatrizen und
+% benutzen sie diese um die Vorwaertskinematik zu loesen! Beispielhaft ist
+% die erste Matrix angegeben
+
 M01 = DHjT(J(1)+theta(1),a(1),alp(1),d(1));
-M12 = DHjT(J(2)+theta(2),a(2),alp(2),d(2));
-M23 = DHjT(J(3)+theta(3),a(3),alp(3),d(3));
-M34 = DHjT(J(4)+theta(4),a(4),alp(4),d(4));
-M45 = DHjT(J(5)+theta(5),a(5),alp(5),d(5));
-M56 = DHjT(J(6)+theta(6),a(6),alp(6),d(6));
-M67 = DHjT(J(7)+theta(7),a(7),alp(7),d(7));
-M07 = M01*M12*M23*M34*M45*M56*M67;
+
+
 M = M07;
+end

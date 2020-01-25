@@ -15,18 +15,25 @@ Delta_pose = max(abs(A_ziel(:)-A(:)));
 
 i=0;
 while Delta_pose > 0.01
-    i=i+1;
-    J = jacobianKuka(q(1),q(2),q(3),q(4),q(5),q(6),q(7));
-    A_diff = A_ziel-A;
-    % Extraktion der nichttrivialen Einträge in der Differenz der
-    % Stellungsmatrizen
-    A_diff = A_diff(1:3, :);
-    % Umsortieren der Abweichung von der Stellungsmatrix zu einem
-    % Spaltenvektor
-    A_diff = A_diff(:);
-    % Lösen des überbestimmten Gleichungssystems zur Bestimmung der
-    % Änderung in den Gelenkwinkeln
-    dq = J \ A_diff;
+    %% LSG
+%     i=i+1;
+%     J = jacobianKuka(q(1),q(2),q(3),q(4),q(5),q(6),q(7));
+%     A_diff = A_ziel-A;
+%     % Extraktion der nichttrivialen Einträge in der Differenz der
+%     % Stellungsmatrizen
+%     A_diff = A_diff(1:3, :);
+%     % Umsortieren der Abweichung von der Stellungsmatrix zu einem
+%     % Spaltenvektor
+%     A_diff = A_diff(:);
+%     % Lösen des überbestimmten Gleichungssystems zur Bestimmung der
+%     % Änderung in den Gelenkwinkeln
+%     dq = J \ A_diff;
+    
+    %% CODESNIPPET
+    % TODO: implementieren sie die inkrementelle inverse Kinematik. Lassen
+    % sie sich von Aufgabenblatt 7 Inspirieren.
+    
+    %%
     % Berechnung der neuen Gelenkwinkel
     q = wrapToPi(q + dq);
     
